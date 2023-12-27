@@ -14,11 +14,7 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-      - name: Set trace-start
-        id: set-trace-start
-        run: |
-           echo ::set-output name=trace-start::$(date +%s)
-
+    
       - name: build
         run: |
           echo "building"
@@ -28,5 +24,4 @@ jobs:
          chmod +x gradlew
          ./gradlew buil sonar -Dsonar.token=${{ secrets.TOKENSONARV1 }}
      
-    outputs:
-      trace-start: ${{ steps.set-trace-start.outputs.trace-start }}
+   
